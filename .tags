@@ -1,0 +1,60 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CC	Makefile	/^CC = gcc$/;"	m
+CPPFLAGS	Makefile	/^CPPFLAGS= -g -I$(MTCPROOT)\/mtcp\/lib\/ -I$(MTCPROOT)\/mtcp\/src\/include\/ -I$(MTCPROOT)\/io_engine\/include\/ -DMULTI_THREADED$/;"	m
+INPORT_ANY	mtcp_api.h	13;"	d
+MTCPROOT	Makefile	/^MTCPROOT = \/usr\/src\/mtcp$/;"	m
+MTCP_API_H	mtcp_api.h	2;"	d
+MTCP_EPOLLERR	mtcp_epoll.h	/^	MTCP_EPOLLERR		= 0x008,$/;"	e	enum:mtcp_event_type
+MTCP_EPOLLET	mtcp_epoll.h	/^	MTCP_EPOLLET		= (1 << 31)$/;"	e	enum:mtcp_event_type
+MTCP_EPOLLHUP	mtcp_epoll.h	/^	MTCP_EPOLLHUP		= 0x010,$/;"	e	enum:mtcp_event_type
+MTCP_EPOLLIN	mtcp_epoll.h	/^	MTCP_EPOLLIN	= 0x001, $/;"	e	enum:mtcp_event_type
+MTCP_EPOLLMSG	mtcp_epoll.h	/^	MTCP_EPOLLMSG		= 0x400, $/;"	e	enum:mtcp_event_type
+MTCP_EPOLLNONE	mtcp_epoll.h	/^	MTCP_EPOLLNONE	= 0x000, $/;"	e	enum:mtcp_event_type
+MTCP_EPOLLONESHOT	mtcp_epoll.h	/^	MTCP_EPOLLONESHOT	= (1 << 30), $/;"	e	enum:mtcp_event_type
+MTCP_EPOLLOUT	mtcp_epoll.h	/^	MTCP_EPOLLOUT	= 0x004,$/;"	e	enum:mtcp_event_type
+MTCP_EPOLLPRI	mtcp_epoll.h	/^	MTCP_EPOLLPRI	= 0x002,$/;"	e	enum:mtcp_event_type
+MTCP_EPOLLRDBAND	mtcp_epoll.h	/^	MTCP_EPOLLRDBAND	= 0x080, $/;"	e	enum:mtcp_event_type
+MTCP_EPOLLRDHUP	mtcp_epoll.h	/^	MTCP_EPOLLRDHUP 	= 0x2000,$/;"	e	enum:mtcp_event_type
+MTCP_EPOLLRDNORM	mtcp_epoll.h	/^	MTCP_EPOLLRDNORM	= 0x040, $/;"	e	enum:mtcp_event_type
+MTCP_EPOLLWRBAND	mtcp_epoll.h	/^	MTCP_EPOLLWRBAND	= 0x200, $/;"	e	enum:mtcp_event_type
+MTCP_EPOLLWRNORM	mtcp_epoll.h	/^	MTCP_EPOLLWRNORM	= 0x100, $/;"	e	enum:mtcp_event_type
+MTCP_EPOLL_CTL_ADD	mtcp_epoll.h	/^	MTCP_EPOLL_CTL_ADD = 1, $/;"	e	enum:mtcp_epoll_op
+MTCP_EPOLL_CTL_DEL	mtcp_epoll.h	/^	MTCP_EPOLL_CTL_DEL = 2, $/;"	e	enum:mtcp_epoll_op
+MTCP_EPOLL_CTL_MOD	mtcp_epoll.h	/^	MTCP_EPOLL_CTL_MOD = 3, $/;"	e	enum:mtcp_epoll_op
+MTCP_EPOLL_H	mtcp_epoll.h	2;"	d
+MTCP_SOCK_EPOLL	mtcp_api.h	/^	MTCP_SOCK_EPOLL, $/;"	e	enum:socket_type
+MTCP_SOCK_LISTENER	mtcp_api.h	/^	MTCP_SOCK_LISTENER, $/;"	e	enum:socket_type
+MTCP_SOCK_PIPE	mtcp_api.h	/^	MTCP_SOCK_PIPE, $/;"	e	enum:socket_type
+MTCP_SOCK_PROXY	mtcp_api.h	/^	MTCP_SOCK_PROXY, $/;"	e	enum:socket_type
+MTCP_SOCK_STREAM	mtcp_api.h	/^	MTCP_SOCK_STREAM, $/;"	e	enum:socket_type
+MTCP_SOCK_UNUSED	mtcp_api.h	/^	MTCP_SOCK_UNUSED, $/;"	e	enum:socket_type
+UNUSED	mtcp_api.h	9;"	d
+data	mtcp_epoll.h	/^	mtcp_epoll_data_t data;$/;"	m	struct:mtcp_epoll_event
+events	mtcp_epoll.h	/^	uint32_t events;$/;"	m	struct:mtcp_epoll_event
+main	main.c	/^main()$/;"	f
+max_concurrency	mtcp_api.h	/^	int max_concurrency;$/;"	m	struct:mtcp_conf
+max_num_buffers	mtcp_api.h	/^	int max_num_buffers;$/;"	m	struct:mtcp_conf
+mctx	main.c	/^mctx_t mctx;$/;"	v
+mctx_t	mtcp_api.h	/^typedef struct mtcp_context *mctx_t;$/;"	t	typeref:struct:mtcp_context
+mtcp_conf	mtcp_api.h	/^struct mtcp_conf$/;"	s
+mtcp_epoll_data	mtcp_epoll.h	/^typedef union mtcp_epoll_data$/;"	u
+mtcp_epoll_data_t	mtcp_epoll.h	/^} mtcp_epoll_data_t;$/;"	t	typeref:union:mtcp_epoll_data
+mtcp_epoll_event	mtcp_epoll.h	/^struct mtcp_epoll_event$/;"	s
+mtcp_epoll_op	mtcp_epoll.h	/^enum mtcp_epoll_op$/;"	g
+mtcp_event_type	mtcp_epoll.h	/^enum mtcp_event_type$/;"	g
+mtcp_sighandler_t	mtcp_api.h	/^typedef void (*mtcp_sighandler_t)(int);$/;"	t
+num_cores	mtcp_api.h	/^	int num_cores;$/;"	m	struct:mtcp_conf
+ptr	mtcp_epoll.h	/^	void *ptr;$/;"	m	union:mtcp_epoll_data
+rcvbuf_size	mtcp_api.h	/^	int rcvbuf_size;$/;"	m	struct:mtcp_conf
+sndbuf_size	mtcp_api.h	/^	int sndbuf_size;$/;"	m	struct:mtcp_conf
+socket_type	mtcp_api.h	/^enum socket_type$/;"	g
+sockid	mtcp_epoll.h	/^	int sockid;$/;"	m	union:mtcp_epoll_data
+tcp_timeout	mtcp_api.h	/^	int tcp_timeout;$/;"	m	struct:mtcp_conf
+tcp_timewait	mtcp_api.h	/^	int tcp_timewait;$/;"	m	struct:mtcp_conf
+u32	mtcp_epoll.h	/^	uint32_t u32;$/;"	m	union:mtcp_epoll_data
+u64	mtcp_epoll.h	/^	uint64_t u64;$/;"	m	union:mtcp_epoll_data
