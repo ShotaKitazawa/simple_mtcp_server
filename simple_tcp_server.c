@@ -86,7 +86,7 @@ int main() {
     exit(EXIT_FAILURE);
   }
   /* create mtcp context: this will spawn an mtcp thread */
-  ctx->mctx = mtcp_create_context(0);
+  ctx->mctx = mtcp_create_context(1);
   if (!ctx->mctx) {
     TRACE_ERROR("Failed to create mtcp context!\n");
     free(ctx);

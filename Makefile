@@ -40,7 +40,7 @@ LIBS += -m64
 endif
 
 # mtcp library and header 
-MTCP_FLD    =/usr/src/mtcp/mtcp/
+MTCP_FLD    =/usr/src/mtcp/mtcp
 MTCP_INC    =-I${MTCP_FLD}/include
 MTCP_LIB    =-L${MTCP_FLD}/lib
 MTCP_TARGET = ${MTCP_LIB}/libmtcp.a
@@ -96,10 +96,12 @@ all: simple_tcp_server
 
 simple_tcp_server.o: simple_tcp_server.c
 	$(MSG) "   CC $<"
+	$(MSG) "$(HIDE) ${CC} -c $< ${CFLAGS} ${INC}"
 	$(HIDE) ${CC} -c $< ${CFLAGS} ${INC}
 
 simple_tcp_server: simple_tcp_server.o ${MTCP_FLD}/lib/libmtcp.a
 	$(MSG) "   LD $<"
+	$(MSG) "$(HIDE) ${CC} $< ${LIBS} ${UTIL_OBJ} -o $@"
 	$(HIDE) ${CC} $< ${LIBS} ${UTIL_OBJ} -o $@
 
 clean:
