@@ -1,4 +1,5 @@
 core
+log_*
 
 cpu.h
 debug.h
