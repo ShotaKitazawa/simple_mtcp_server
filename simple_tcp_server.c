@@ -70,7 +70,7 @@ int main() {
   mctx_t mctx;
   struct mtcp_conf mcfg;
   mtcp_getconf(&mcfg);
-  mcfg.num_cores = 1;
+  mcfg.num_cores = 0;
   mtcp_setconf(&mcfg);
   ret = mtcp_init("server.conf");
   if (ret) {
@@ -116,6 +116,12 @@ int main() {
 
   // create socket
   sock0 = socket(AF_INET, SOCK_STREAM, 0);
+  int sock1 = socket(AF_INET, SOCK_STREAM, 0);
+  int sock2 = socket(AF_UNIX, SOCK_STREAM, 0);
+  int sock3 = socket(AF_INET, SOCK_STREAM, 0);
+  close(sock1);
+  close(sock2);
+  close(sock3);
   // set socket
   addr.sin_family = AF_INET;
   addr.sin_port = htons(12345);
