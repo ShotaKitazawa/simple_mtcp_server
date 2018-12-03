@@ -1,31 +1,3 @@
-#COMPILER = gcc
-#CFLAGS = -g -Wall -DMULTI_THREADED
-#LIBS = $(MTCPROOT)/mtcp/lib/libmtcp.a $(MTCPROOT)/io_engine/lib/libps.a -lpthread -ldpdk -lnuma -lrt -ldl -lgmp
-#INCLUDE = -I$(MTCPROOT)/mtcp/lib/ -I$(MTCPROOT)/mtcp/src/include -I$(MTCPROOT)/io_engine/include
-#TARGET = $(shell basename `readlink -f .`)
-#SRCDIR = .
-#SOURCES = $(wildcard $(SRCDIR)/*.c)
-#OBJDIR = .
-#OBJECTS   = $(addprefix $(OBJDIR)/, $(notdir $(SOURCES:.c=.o)))
-#DEPENDS   = $(OBJECTS:.o=.d)
-#
-#$(TARGET): $(OBJECTS) $(LIBS)
-#		$(COMPILER) -o $@ $^ $(LDFLAGS)
-#
-#$(OBJDIR)/%.o: $(SRCDIR)/%.c
-#		-mkdir -p $(OBJDIR)
-#			$(COMPILER) $(CFLAGS) $(INCLUDE) -o $@ -c $<
-#
-#all: clean $(TARGET)
-#
-#clean:
-#		-rm -f $(OBJECTS) $(DEPENDS) $(TARGET)
-#
-#-include $(DEPENDS)
-
-
-# TODO: Make this Makefile.in pretty
-
 TARGETS = simple_tcp_server
 CC=gcc -g -O3 -Wall -Werror -fgnu89-inline
 DPDK=1
@@ -40,15 +12,15 @@ LIBS += -m64
 endif
 
 # mtcp library and header 
-#MTCP_FLD    =/usr/src/mtcp/mtcp/
-MTCP_FLD    =/usr/src/mtcp.test/mtcp/
+MTCP_FLD    =/usr/src/mtcp/mtcp/
+#MTCP_FLD    =/usr/src/mtcp.test/mtcp/
 #MTCP_FLD    =/usr/src/mtcp.default/mtcp/
 MTCP_INC    =-I${MTCP_FLD}/include
 MTCP_LIB    =-L${MTCP_FLD}/lib
 MTCP_TARGET = ${MTCP_LIB}/libmtcp.a
 
-#UTIL_FLD = /usr/src/mtcp/util
-UTIL_FLD = /usr/src/mtcp.test/util
+UTIL_FLD = /usr/src/mtcp/util
+#UTIL_FLD = /usr/src/mtcp.test/util
 #UTIL_FLD = /usr/src/mtcp.default/util
 UTIL_INC = -I${UTIL_FLD}/include
 UTIL_OBJ = ${UTIL_FLD}/http_parsing.o ${UTIL_FLD}/tdate_parse.o ${UTIL_FLD}/netlib.o
@@ -59,8 +31,8 @@ LIBS = ${MTCP_LIB}
 
 # psio-specific variables
 ifeq ($(PS),1)
-#PS_DIR = /usr/src/mtcp/io_engine/
-PS_DIR = /usr/src/mtcp.test/io_engine/
+PS_DIR = /usr/src/mtcp/io_engine/
+#PS_DIR = /usr/src/mtcp.test/io_engine/
 #PS_DIR = /usr/src/mtcp.default/io_engine/
 PS_INC = ${PS_DIR}/include
 INC += -I{PS_INC}
@@ -102,10 +74,12 @@ all: simple_tcp_server
 
 simple_tcp_server.o: simple_tcp_server.c
 	$(MSG) "   CC $<"
+	$(MSG) "$(HIDE) ${CC} -c $< ${CFLAGS} ${INC}"
 	$(HIDE) ${CC} -c $< ${CFLAGS} ${INC}
 
 simple_tcp_server: simple_tcp_server.o ${MTCP_FLD}/lib/libmtcp.a
 	$(MSG) "   LD $<"
+	$(MSG) "$(HIDE) ${CC} $< ${LIBS} ${UTIL_OBJ} -o $@"
 	$(HIDE) ${CC} $< ${LIBS} ${UTIL_OBJ} -o $@
 
 clean:
